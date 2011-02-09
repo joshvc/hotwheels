@@ -18,7 +18,7 @@ class CarsController < ApplicationController
   end
 
   def index
-    @cars = Car.all
+    @cars = Car.find(:all, :order => 'id')
   end
 
   private
