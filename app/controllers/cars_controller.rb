@@ -7,12 +7,18 @@ class CarsController < ApplicationController
     car.buyer = params[:car][:buyer]
     car.purchased = params[:car][:purchased]
     car.save
+    debugger
+
 
     redirect_to request.referer
   end
 
   def edit
     @car = Car.find_by_id(params[:id])
+  end
+
+  def index
+    @cars = Car.all
   end
 
   private

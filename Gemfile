@@ -5,6 +5,7 @@ gem 'heroku'
 gem 'fastercsv'
 gem 'devise'
 gem 'will_paginate'
+gem 'ruby-debug'
 
 
 # Bundle edge Rails instead:
