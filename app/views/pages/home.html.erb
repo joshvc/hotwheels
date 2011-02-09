@@ -1,0 +1,31 @@
+<h1>Baby Van Cleef's Hot Wheels Wish List</h1>
+We're trying to collect all 50 of Hot Wheels' 2011 New Models, since Ficus* is also
+a 2011 New Model.  If you'd like to participate, great!  This is the list, and if you get ahold
+of one, check it off and log your name in so the little guy will know where they all come from.
+
+<p>Disclaimer: please don't spend any serious cash on this endeavour- these are just the regular
+cars, not the treasure hunt ones or any collector type items.  When he's old enough, he'll definitely
+be allowed to play with this set.  So don't spend $50 on ebay for one if we're short :)
+
+
+
+<p>The cars on the list will say 2011 New Models at the bottom of the packaging, and
+have a number out of 50 on the top right.
+
+<p>*Not final name selection.  That you know of.
+<table>
+
+<tr>
+<th>Card #</th>
+<th>Description</th>
+</tr>
+
+<% @cars.each do |car| %>
+<tr>
+<td>
+<%= car.card_id %>/50 </td>
+<td><%= car.description %></td>
+</tr>
+
+<% end %>
+
