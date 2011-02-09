@@ -4,9 +4,8 @@ class CarsController < ApplicationController
 
   def update
     car = Car.find_by_id(params[:id])
-    car.buyer = params[:car][:buyer]
-    car.purchased = params[:car][:purchased]
-    car.save
+    car.update_attributes(params[:car])
+
 
     url = URI::parse request.referer
 
