@@ -7,7 +7,13 @@ class CarsController < ApplicationController
     car.buyer = params[:car][:buyer]
     car.purchased = params[:car][:purchased]
     car.save
-    debugger
+
+    url = URI::parse request.referer
+
+    unless url.path.strip.include? "edit"
+      CarMailer.updated_entry(car).deliver
+    end
+
 
 
     redirect_to request.referer
