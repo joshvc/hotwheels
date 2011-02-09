@@ -1,0 +1,11 @@
+<h1>Edit Car Information</h1>
+<%= form_for @car do |f| %>
+<%= f.label :description %>
+<p><%= f.text_field :description %>
+<p><%= f.label :buyer %>
+<p><%= f.text_field :buyer %>
+<p><%= f.label :purchased %><%= f.check_box :purchased %>
+<p><%= f.submit "Update" %>
+<% end %>
+<p><%= link_to "Home", root_path %>
+

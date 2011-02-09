@@ -1,12 +1,26 @@
 class CarsController < ApplicationController
 
-    def update
+  before_filter :logged_in, :only => :edit
+
+  def update
     car = Car.find_by_id(params[:id])
     car.buyer = params[:car][:buyer]
-    car.purchased = true
+    car.purchased = params[:car][:purchased]
     car.save
 
     redirect_to request.referer
+  end
+
+  def edit
+    @car = Car.find_by_id(params[:id])
+  end
+
+  private
+
+  def logged_in
+    unless user_signed_in?
+      redirect_to root_path
+    end
   end
 end
 

@@ -25,14 +25,24 @@ have a number out of 50 on the top right.<br />
 
 <% @cars.each do |car| %>
   <tr>
-  <td>
-  <%= car.card_id %>/50 </td>
-  <td><%= car.description %></td>
+
+
+  <% if user_signed_in? %>
+    <td><%= link_to "#{car.card_id}/50", "/cars/#{car.id}/edit" %>
+  <% else %>
+  <td><%= car.card_id %>/50 </td>
+  <% end %>
+
+
+    <td><%= car.description %></td>
+
+
   <% if car.purchased == true %>
     <td><%= car.buyer %>
     <td></td>
   <% else %>
-    <td><%= form_for car do |f| %><%= f.text_field :buyer %></td>
+    <td><%= form_for car do |f| %><%= f.text_field :buyer %>
+        <%= f.hidden_field :purchased, :value => true %></td>
     <td><%= f.submit "I got it!" %>
   <% end %>
   </tr>
