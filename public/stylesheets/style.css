@@ -230,9 +230,9 @@ button {  width: auto; overflow: visible; }
 
 #list {
     padding-top: 20px;
-    padding-right: 100px;
+    padding-right: 50px;
     padding-bottom: 20px;
-    padding-left: 100px;
+    padding-left: 50px;
     font-family: 'Josefin Sans';
     font-size: 18px;
     border:double 5px #761919;
