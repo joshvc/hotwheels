@@ -4,7 +4,7 @@ gem 'rails', '3.0.3'
 gem 'heroku'
 gem 'fastercsv'
 gem 'devise'
-
+gem 'will_paginate'
 
 
 # Bundle edge Rails instead:
