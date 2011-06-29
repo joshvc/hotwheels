@@ -23,7 +23,7 @@ class CarsController < ApplicationController
   end
 
   def index
-    @cars = Car.find(:all, :order => 'id')
+    @cars = Car.find(:all, :order => 'unavailable, id')
   end
 
   private

@@ -14,47 +14,51 @@ have a number out of 50 on the top right.<br />
 
 <p>*Not final name selection.  That you know of.
 <div id = "list">
-<%= will_paginate @cars %>
-<table>
+  <%= will_paginate @cars %>
+  <table>
 
-<tr>
-<th>Card #</th>
-<th>Description</th>
-<th>Who Found It?</th>
-</tr>
+    <tr>
+      <th>Card #</th>
+      <th>Description</th>
+      <th>Who Found It?</th>
+    </tr>
 
-<% @cars.each do |car| %>
-  <tr>
-
-
-  <% if user_signed_in? %>
-    <td><%= link_to "#{car.card_id}/50", "/cars/#{car.id}/edit" %>
-  <% else %>
-  <td><%= car.card_id %>/50 </td>
-  <% end %>
+    <% @cars.each do |car| %>
+      <tr>
 
 
-    <td><%= car.description %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to "#{car.card_id}/50", "/cars/#{car.id}/edit" %>
+          <% else %>
+            <td><%= car.card_id %>/50 </td>
+          <% end %>
 
 
-  <% if car.purchased == true %>
-    <td><%= car.buyer %>
-    <td></td>
-  <% else %>
-    <td><%= form_for car do |f| %><%= f.text_field :buyer %>
-        <%= f.hidden_field :purchased, :value => true %></td>
-    <td><%= f.submit "I got it!" %>
-  <% end %>
+          <td><%= car.description %>
+            <% if car.unavailable? %>**<% end %>
+          </td>
 
-  <% end %>
 
-  <td><% unless car.link.nil? %><%= link_to "Official Site", car.link %>  <% end%></td>
-  </tr>
 
-<% end %>
-</table>
-<%= will_paginate @cars %>
-<%= link_to "Semi-Printable Full Wanted List", "/cars" %>
+          <% if car.purchased == true %>
+            <td><%= car.buyer %>
+              <td></td>
+            <% else %>
+              <td><%= form_for car do |f| %><%= f.text_field :buyer %>
+                  <%= f.hidden_field :purchased, :value => true %></td>
+                <td><%= f.submit "I got it!" %>
+                <% end %>
 
-</div>
+              <% end %>
+
+              <td><% unless car.link.nil? %><%= link_to "Official Site", car.link %>  <% end%></td>
+            </tr>
+
+          <% end %>
+        </table>
+        <%= will_paginate @cars %>
+        <%= link_to "Semi-Printable Full Wanted List", "/cars" %><br />
+        ** - Car May Not Be Available Yet
+
+      </div>
 

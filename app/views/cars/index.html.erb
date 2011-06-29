@@ -2,7 +2,9 @@
 <% @cars.each do |car| %>
   <% unless car.purchased == true %>
     <%= car.card_id%>/50.....
-    <%= car.description %><br />
+    <%= car.description %>
+    <% if car.unavailable? %>**<% end %><br />
   <% end %>
 <% end %>
+** - Car may be not be available yet
 
