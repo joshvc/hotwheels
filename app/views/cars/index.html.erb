@@ -1,9 +1,17 @@
 <h6>Baby Van Cleef's Hot Wheels Wish List</h6>
 <% @cars.each do |car| %>
-  <% unless car.purchased == true %>
-    <%= car.card_id%>/50.....
-    <%= car.description %>
-    <% if car.unavailable? %>**<% end %><br />
+  <% unless car.purchased? or car.unavailable? %>
+      <%= car.card_id%>/50.....
+      <%= car.description %>
+    <br />
+  <% end %>
+<% end %>
+
+<% @cars.each do |car| %>
+  <% unless car.purchased? or car.unavailable.nil? or car.unavailable == false %>
+      <%= car.card_id%>/50.....
+      <%= car.description %>**
+    <br />
   <% end %>
 <% end %>
 ** - Car may be not be available yet
