@@ -1,9 +1,8 @@
 <h6>Baby Van Cleef's Hot Wheels Wish List</h6>
 <% @cars.each do |car| %>
-<table>
-<% unless car.purchased == true %>
-<td><%= car.card_id%>/50.....</td>
-<td><%= car.description %></td>
-<% end %>
+  <% unless car.purchased == true %>
+    <%= car.card_id%>/50.....
+    <%= car.description %><br />
+  <% end %>
 <% end %>
 
